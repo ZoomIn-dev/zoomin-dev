@@ -75,6 +75,25 @@ Lead Generation -> Qualification -> Client Brief -> CRM Setup
 
 ---
 
+
+<img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/header.svg" width="100%" alt="Sleek Hero">
+
+<br/>
+
+<img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/about.svg" width="100%" alt="Sleek About">
+
+<br/>
+
+<img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/skills.svg" width="100%" alt="Sleek Stack">
+
+<br/>
+
+<img src="https://ryme.md/api/render/sleek-github-stats?u=ZoomIn-dev&bg=0d0d10&fg=f7f7fb&accent=dc2626&muted=a5a5b3&dur=7" width="100%" alt="Sleek GitHub">
+
+<br/>
+
+<img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/footer.svg" width="100%" alt="Sleek Wave">
+
 ## GitHub Analytics
 
 ![Zoomin's GitHub stats](https://github-readme-stats.vercel.app/api?username=ZoomIn-dev&show_icons=true&theme=vision-friendly-dark)
