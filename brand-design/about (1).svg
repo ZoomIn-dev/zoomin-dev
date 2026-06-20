@@ -1,0 +1,102 @@
+<svg width="880" height="240" viewBox="0 0 880 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes slideIn {
+        0%   { opacity:0; transform:translateX(-20px); }
+        18%  { opacity:1; transform:translateX(0); }
+        82%  { opacity:1; transform:translateX(0); }
+        98%  { opacity:0; transform:translateX(20px); }
+        100% { opacity:0; transform:translateX(-20px); }
+      }
+      @keyframes pillPop {
+        0%   { opacity:0; transform:scale(0.75); }
+        20%  { opacity:1; transform:scale(1); }
+        80%  { opacity:1; transform:scale(1); }
+        100% { opacity:0; transform:scale(0.75); }
+      }
+      @keyframes glowPulse { 0%,100%{opacity:0.3;} 50%{opacity:0.7;} }
+      @keyframes barGrow {
+        0%   { transform:scaleY(0); opacity:0; }
+        15%  { transform:scaleY(1); opacity:1; }
+        85%  { transform:scaleY(1); opacity:1; }
+        100% { transform:scaleY(0); opacity:0; }
+      }
+      .a1 { animation: slideIn 6s 0.1s ease-in-out infinite; opacity:0; }
+      .a2 { animation: slideIn 6s 0.3s ease-in-out infinite; opacity:0; }
+      .a3 { animation: slideIn 6s 0.5s ease-in-out infinite; opacity:0; }
+      .a4 { animation: slideIn 6s 0.7s ease-in-out infinite; opacity:0; }
+      .p1 { animation: pillPop 6s 0.85s ease-in-out infinite; opacity:0; }
+      .p2 { animation: pillPop 6s 1.0s  ease-in-out infinite; opacity:0; }
+      .p3 { animation: pillPop 6s 1.15s ease-in-out infinite; opacity:0; }
+      .p4 { animation: pillPop 6s 1.3s  ease-in-out infinite; opacity:0; }
+      .bar { animation: barGrow 6s 0.05s ease-in-out infinite; opacity:0; transform-origin: top; }
+      .glow { animation: glowPulse 3s ease-in-out infinite; }
+    </style>
+    <linearGradient id="bgA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F4FF"/>
+      <stop offset="100%" stop-color="#EDE5FF"/>
+    </linearGradient>
+    <linearGradient id="accentA" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="lineA" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#8B5CF6" stop-opacity="0"/>
+      <stop offset="40%"  stop-color="#8B5CF6"/>
+      <stop offset="60%"  stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="880" height="240" fill="url(#bgA)"/>
+
+  <!-- Left accent bar -->
+  <rect class="bar" x="0" y="0" width="6" height="240" fill="url(#accentA)" rx="0"/>
+
+  <!-- Soft glow -->
+  <ellipse class="glow" cx="880" cy="120" rx="200" ry="120" fill="#8B5CF6" fill-opacity="0.07"/>
+
+  <!-- Section label -->
+  <g class="a1">
+    <rect x="30" y="22" width="114" height="28" rx="7" fill="#7C3AED" fill-opacity="0.14" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="87" y="40" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#6D28D9" text-anchor="middle" letter-spacing="2.5" font-weight="700">ABOUT US</text>
+  </g>
+
+  <!-- Heading -->
+  <g class="a2">
+    <text x="30" y="90" font-family="'Segoe UI',Arial,sans-serif" font-size="30" font-weight="900" fill="#1E1040">We help businesses</text>
+    <text x="30" y="126" font-family="'Segoe UI',Arial,sans-serif" font-size="30" font-weight="900" fill="#7C3AED">grow.</text>
+  </g>
+
+  <!-- Description -->
+  <g class="a3">
+    <text x="30" y="152" font-family="'Segoe UI',Arial,sans-serif" font-size="14" fill="#4C1D95">Strategy · Creativity · Analytics — one seamless workflow.</text>
+    <text x="30" y="172" font-family="'Segoe UI',Arial,sans-serif" font-size="14" fill="#6D28D9" fill-opacity="0.7">From the first lead to contract renewal, we handle it all.</text>
+  </g>
+
+  <!-- Who we work with label -->
+  <g class="a4">
+    <text x="30" y="200" font-family="'Segoe UI',Arial,sans-serif" font-size="11" fill="#7C3AED" letter-spacing="2.5" font-weight="700">WE WORK WITH</text>
+  </g>
+
+  <!-- Pills -->
+  <g class="p1">
+    <rect x="30" y="210" width="110" height="24" rx="12" fill="#7C3AED" fill-opacity="0.15" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="85" y="226" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#4C1D95" text-anchor="middle" font-weight="700">SMBs</text>
+  </g>
+  <g class="p2">
+    <rect x="150" y="210" width="162" height="24" rx="12" fill="#7C3AED" fill-opacity="0.15" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="231" y="226" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#4C1D95" text-anchor="middle" font-weight="700">Restaurants &amp; Cafés</text>
+  </g>
+  <g class="p3">
+    <rect x="322" y="210" width="155" height="24" rx="12" fill="#7C3AED" fill-opacity="0.15" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="399" y="226" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#4C1D95" text-anchor="middle" font-weight="700">Startup Founders</text>
+  </g>
+  <g class="p4">
+    <rect x="487" y="210" width="152" height="24" rx="12" fill="#7C3AED" fill-opacity="0.15" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="563" y="226" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#4C1D95" text-anchor="middle" font-weight="700">Growing Brands</text>
+  </g>
+
+  <!-- Bottom line -->
+  <rect x="0" y="237" width="880" height="2.5" fill="url(#lineA)"/>
+</svg>

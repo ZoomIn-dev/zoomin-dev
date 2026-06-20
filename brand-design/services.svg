@@ -1,0 +1,139 @@
+<svg width="880" height="300" viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes cardPop {
+        0%   { opacity:0; transform:scale(0.82) translateY(14px); }
+        20%  { opacity:1; transform:scale(1) translateY(0); }
+        80%  { opacity:1; transform:scale(1) translateY(0); }
+        100% { opacity:0; transform:scale(0.82) translateY(14px); }
+      }
+      @keyframes labelIn {
+        0%   { opacity:0; transform:translateY(-10px); }
+        15%  { opacity:1; transform:translateY(0); }
+        85%  { opacity:1; transform:translateY(0); }
+        100% { opacity:0; transform:translateY(-10px); }
+      }
+      @keyframes glowPulse { 0%,100%{opacity:0.2;} 50%{opacity:0.5;} }
+      @keyframes shimmer {
+        0%   { opacity:0; }
+        10%  { opacity:1; }
+        50%  { opacity:0.4; }
+        90%  { opacity:1; }
+        100% { opacity:0; }
+      }
+      .lbl  { animation: labelIn 6s 0.05s ease-in-out infinite; opacity:0; }
+      .c1   { animation: cardPop 6s 0.12s ease-in-out infinite; opacity:0; }
+      .c2   { animation: cardPop 6s 0.26s ease-in-out infinite; opacity:0; }
+      .c3   { animation: cardPop 6s 0.40s ease-in-out infinite; opacity:0; }
+      .c4   { animation: cardPop 6s 0.54s ease-in-out infinite; opacity:0; }
+      .c5   { animation: cardPop 6s 0.68s ease-in-out infinite; opacity:0; }
+      .c6   { animation: cardPop 6s 0.82s ease-in-out infinite; opacity:0; }
+      .glow { animation: glowPulse 3s ease-in-out infinite; }
+      .shim { animation: shimmer 6s 0.5s ease-in-out infinite; opacity:0; }
+    </style>
+    <linearGradient id="bgS" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F4FF"/>
+      <stop offset="100%" stop-color="#EDE5FF"/>
+    </linearGradient>
+    <linearGradient id="accentS" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="lineS" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#8B5CF6" stop-opacity="0"/>
+      <stop offset="40%"  stop-color="#8B5CF6"/>
+      <stop offset="60%"  stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cardFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5F0FF"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-5%" y="-5%" width="115%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#8B5CF6" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <rect width="880" height="300" fill="url(#bgS)"/>
+  <rect x="0" y="0" width="6" height="300" fill="url(#accentS)"/>
+
+  <!-- Glow blobs -->
+  <ellipse class="glow" cx="440" cy="0" rx="400" ry="100" fill="#8B5CF6" fill-opacity="0.06"/>
+  <ellipse class="glow" cx="440" cy="300" rx="400" ry="100" fill="#7C3AED" fill-opacity="0.05"/>
+
+  <!-- Section label -->
+  <g class="lbl">
+    <rect x="30" y="18" width="130" height="28" rx="7" fill="#7C3AED" fill-opacity="0.13" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="95" y="36" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#6D28D9" text-anchor="middle" letter-spacing="2.5" font-weight="700">WHAT WE DO</text>
+  </g>
+
+  <!-- ROW 1 -->
+  <!-- Social Media -->
+  <g class="c1" filter="url(#cardShadow)">
+    <rect x="30" y="60" width="264" height="100" rx="12" fill="url(#cardFill)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.4"/>
+    <rect x="30" y="60" width="6" height="100" rx="3" fill="#8B5CF6"/>
+    <text x="52" y="88"  font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="800" fill="#1E1040">📱 Social Media Mgmt</text>
+    <text x="52" y="110" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#6D28D9">Strategy · Content Calendar</text>
+    <text x="52" y="128" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#8B5CF6" fill-opacity="0.75">Posting · Growth · Engagement</text>
+    <rect x="52" y="142" width="88" height="10" rx="5" fill="#8B5CF6" fill-opacity="0.18"/>
+    <text x="52" y="152" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#7C3AED" font-weight="700">▸ Core Service</text>
+  </g>
+
+  <!-- Paid Advertising -->
+  <g class="c2" filter="url(#cardShadow)">
+    <rect x="308" y="60" width="264" height="100" rx="12" fill="url(#cardFill)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.4"/>
+    <rect x="308" y="60" width="6" height="100" rx="3" fill="#7C3AED"/>
+    <text x="330" y="88"  font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="800" fill="#1E1040">📣 Paid Advertising</text>
+    <text x="330" y="110" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#6D28D9">Campaign Creation &amp; Mgmt</text>
+    <text x="330" y="128" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#8B5CF6" fill-opacity="0.75">Media Buying · Optimization</text>
+    <rect x="330" y="142" width="88" height="10" rx="5" fill="#7C3AED" fill-opacity="0.18"/>
+    <text x="330" y="152" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#7C3AED" font-weight="700">▸ Core Service</text>
+  </g>
+
+  <!-- Content Creation -->
+  <g class="c3" filter="url(#cardShadow)">
+    <rect x="586" y="60" width="264" height="100" rx="12" fill="url(#cardFill)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.4"/>
+    <rect x="586" y="60" width="6" height="100" rx="3" fill="#8B5CF6"/>
+    <text x="608" y="88"  font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="800" fill="#1E1040">✏️ Content Creation</text>
+    <text x="608" y="110" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#6D28D9">Copywriting · Video Production</text>
+    <text x="608" y="128" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#8B5CF6" fill-opacity="0.75">Graphic Design · Scripts</text>
+    <rect x="608" y="142" width="88" height="10" rx="5" fill="#8B5CF6" fill-opacity="0.18"/>
+    <text x="608" y="152" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#7C3AED" font-weight="700">▸ Core Service</text>
+  </g>
+
+  <!-- ROW 2 -->
+  <!-- Data Analysis -->
+  <g class="c4" filter="url(#cardShadow)">
+    <rect x="30" y="178" width="264" height="100" rx="12" fill="url(#cardFill)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.4"/>
+    <rect x="30" y="178" width="6" height="100" rx="3" fill="#7C3AED"/>
+    <text x="52" y="206"  font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="800" fill="#1E1040">📊 Data Analysis</text>
+    <text x="52" y="228" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#6D28D9">SWOT · Competitor Analysis</text>
+    <text x="52" y="246" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#8B5CF6" fill-opacity="0.75">Market Research · Reporting</text>
+    <rect x="52" y="260" width="88" height="10" rx="5" fill="#7C3AED" fill-opacity="0.18"/>
+    <text x="52" y="270" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#7C3AED" font-weight="700">▸ Core Service</text>
+  </g>
+
+  <!-- Marketing Strategy -->
+  <g class="c5" filter="url(#cardShadow)">
+    <rect x="308" y="178" width="264" height="100" rx="12" fill="url(#cardFill)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.4"/>
+    <rect x="308" y="178" width="6" height="100" rx="3" fill="#8B5CF6"/>
+    <text x="330" y="206"  font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="800" fill="#1E1040">🎯 Marketing Strategy</text>
+    <text x="330" y="228" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#6D28D9">Full Strategic Planning</text>
+    <text x="330" y="246" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#8B5CF6" fill-opacity="0.75">Tailored to Your Goals</text>
+    <rect x="330" y="260" width="88" height="10" rx="5" fill="#8B5CF6" fill-opacity="0.18"/>
+    <text x="330" y="270" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#7C3AED" font-weight="700">▸ Core Service</text>
+  </g>
+
+  <!-- Web Development -->
+  <g class="c6" filter="url(#cardShadow)">
+    <rect x="586" y="178" width="264" height="100" rx="12" fill="url(#cardFill)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.4"/>
+    <rect x="586" y="178" width="6" height="100" rx="3" fill="#7C3AED"/>
+    <text x="608" y="206"  font-family="'Segoe UI',Arial,sans-serif" font-size="14" font-weight="800" fill="#1E1040">💻 Web Development</text>
+    <text x="608" y="228" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#6D28D9">Websites · E-commerce</text>
+    <text x="608" y="246" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#8B5CF6" fill-opacity="0.75">Landing Pages · Stores</text>
+    <rect x="608" y="260" width="88" height="10" rx="5" fill="#7C3AED" fill-opacity="0.18"/>
+    <text x="608" y="270" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#7C3AED" font-weight="700">▸ Core Service</text>
+  </g>
+
+  <rect x="0" y="297" width="880" height="2.5" fill="url(#lineS)"/>
+</svg>

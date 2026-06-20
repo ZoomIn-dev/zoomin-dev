@@ -1,0 +1,131 @@
+<svg width="880" height="220" viewBox="0 0 880 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes fadeSlideIn {
+        0%   { opacity:0; transform:translateY(18px); }
+        15%  { opacity:1; transform:translateY(0); }
+        80%  { opacity:1; transform:translateY(0); }
+        95%  { opacity:0; transform:translateY(-10px); }
+        100% { opacity:0; transform:translateY(18px); }
+      }
+      @keyframes glowPulse {
+        0%,100% { opacity:0.3; }
+        50%     { opacity:0.7; }
+      }
+      @keyframes dotBlink {
+        0%,100% { opacity:0.2; }
+        50%     { opacity:1; }
+      }
+      @keyframes lineGrow {
+        0%   { opacity:0; transform:scaleX(0); }
+        15%  { opacity:1; transform:scaleX(1); }
+        85%  { opacity:1; transform:scaleX(1); }
+        100% { opacity:0; transform:scaleX(0); }
+      }
+      @keyframes logoPop {
+        0%   { opacity:0; transform:scale(0.7); }
+        18%  { opacity:1; transform:scale(1); }
+        82%  { opacity:1; transform:scale(1); }
+        100% { opacity:0; transform:scale(0.7); }
+      }
+      .t1 { animation: fadeSlideIn 6s 0.1s ease-in-out infinite; opacity:0; }
+      .t2 { animation: fadeSlideIn 6s 0.4s ease-in-out infinite; opacity:0; }
+      .t3 { animation: fadeSlideIn 6s 0.65s ease-in-out infinite; opacity:0; }
+      .t4 { animation: fadeSlideIn 6s 0.9s ease-in-out infinite; opacity:0; }
+      .logo { animation: logoPop 6s 0.05s ease-in-out infinite; opacity:0; }
+      .glow { animation: glowPulse 3s ease-in-out infinite; }
+      .d1 { animation: dotBlink 6s 0.0s ease-in-out infinite; }
+      .d2 { animation: dotBlink 6s 0.5s ease-in-out infinite; }
+      .d3 { animation: dotBlink 6s 1.0s ease-in-out infinite; }
+      .d4 { animation: dotBlink 6s 1.5s ease-in-out infinite; }
+      .d5 { animation: dotBlink 6s 2.0s ease-in-out infinite; }
+      .d6 { animation: dotBlink 6s 2.5s ease-in-out infinite; }
+      .line { animation: lineGrow 6s 0.2s ease-in-out infinite; transform-origin: center; opacity:0; }
+    </style>
+    <linearGradient id="bgH" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F5F0FF"/>
+      <stop offset="100%" stop-color="#EDE5FF"/>
+    </linearGradient>
+    <linearGradient id="lineGradH" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#8B5CF6" stop-opacity="0"/>
+      <stop offset="30%"  stop-color="#8B5CF6"/>
+      <stop offset="70%"  stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="logoTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="logoBot" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E1040"/>
+      <stop offset="100%" stop-color="#2D1B69"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#8B5CF6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Bright background -->
+  <rect width="880" height="220" fill="url(#bgH)"/>
+
+  <!-- Subtle purple glow blob top left -->
+  <ellipse class="glow" cx="100" cy="40" rx="180" ry="80" fill="#8B5CF6" fill-opacity="0.08"/>
+  <!-- Glow blob right -->
+  <ellipse class="glow" cx="800" cy="180" rx="160" ry="70" fill="#7C3AED" fill-opacity="0.07"/>
+
+  <!-- Grid dots top-left -->
+  <circle class="d1" cx="28" cy="28" r="3" fill="#8B5CF6"/>
+  <circle class="d2" cx="52" cy="28" r="3" fill="#8B5CF6"/>
+  <circle class="d3" cx="76" cy="28" r="3" fill="#8B5CF6"/>
+  <circle class="d4" cx="28" cy="52" r="3" fill="#8B5CF6"/>
+  <circle class="d5" cx="52" cy="52" r="3" fill="#8B5CF6"/>
+  <circle class="d6" cx="76" cy="52" r="3" fill="#8B5CF6"/>
+  <circle class="d2" cx="28" cy="76" r="3" fill="#8B5CF6"/>
+  <circle class="d3" cx="52" cy="76" r="3" fill="#8B5CF6"/>
+  <circle class="d4" cx="76" cy="76" r="3" fill="#8B5CF6"/>
+
+  <!-- Grid dots bottom-right -->
+  <circle class="d3" cx="800" cy="144" r="3" fill="#7C3AED"/>
+  <circle class="d4" cx="824" cy="144" r="3" fill="#7C3AED"/>
+  <circle class="d5" cx="848" cy="144" r="3" fill="#7C3AED"/>
+  <circle class="d1" cx="800" cy="168" r="3" fill="#7C3AED"/>
+  <circle class="d2" cx="824" cy="168" r="3" fill="#7C3AED"/>
+  <circle class="d6" cx="848" cy="168" r="3" fill="#7C3AED"/>
+  <circle class="d5" cx="800" cy="192" r="3" fill="#7C3AED"/>
+  <circle class="d1" cx="824" cy="192" r="3" fill="#7C3AED"/>
+  <circle class="d4" cx="848" cy="192" r="3" fill="#7C3AED"/>
+
+  <!-- Diagonal slashes right (brand element) -->
+  <line x1="710" y1="20" x2="800" y2="200" stroke="#8B5CF6" stroke-width="2" stroke-opacity="0.1"/>
+  <line x1="740" y1="20" x2="830" y2="200" stroke="#8B5CF6" stroke-width="2" stroke-opacity="0.07"/>
+
+  <!-- Bottom accent line -->
+  <rect class="line" x="0" y="213" width="880" height="3" rx="1.5" fill="url(#lineGradH)"/>
+  <circle cx="110" cy="214" r="4" fill="#8B5CF6" opacity="0.5"/>
+  <circle cx="770" cy="214" r="4" fill="#7C3AED" opacity="0.5"/>
+
+  <!-- ZI Logo -->
+  <g class="logo" transform="translate(108, 56)" filter="url(#shadow)">
+    <polygon points="0,0 64,0 64,24 18,24" fill="url(#logoTop)"/>
+    <polygon points="46,24 64,24 64,0" fill="#C4B5FD"/>
+    <polygon points="0,28 46,28 64,52 64,66 18,66 0,44" fill="url(#logoBot)"/>
+    <polygon points="18,66 64,66 64,52" fill="#3B2080"/>
+  </g>
+
+  <!-- zoom in wordmark -->
+  <g class="t2">
+    <text x="200" y="112" font-family="'Segoe UI',Arial,sans-serif" font-size="42" font-weight="900" fill="#1E1040" letter-spacing="-1">zoom</text>
+    <text x="322" y="112" font-family="'Segoe UI',Arial,sans-serif" font-size="42" font-weight="900" fill="#7C3AED" letter-spacing="-1"> in</text>
+  </g>
+
+  <!-- Tagline -->
+  <g class="t3">
+    <text x="200" y="140" font-family="'Segoe UI',Arial,sans-serif" font-size="13.5" fill="#6D28D9" letter-spacing="3.5" font-weight="600">MARKETING AGENCY  ·  CAIRO, EGYPT</text>
+  </g>
+
+  <!-- Hashtag pill -->
+  <g class="t4">
+    <rect x="199" y="152" width="180" height="30" rx="15" fill="#7C3AED" fill-opacity="0.12" stroke="#7C3AED" stroke-width="1.5" stroke-opacity="0.5"/>
+    <text x="289" y="171" font-family="'Segoe UI',Arial,sans-serif" font-size="12.5" fill="#6D28D9" text-anchor="middle" font-weight="700">#growwithzoomin</text>
+  </g>
+</svg>

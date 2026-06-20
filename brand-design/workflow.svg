@@ -1,0 +1,151 @@
+<svg width="880" height="220" viewBox="0 0 880 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes stepIn {
+        0%   { opacity:0; transform:translateY(16px); }
+        18%  { opacity:1; transform:translateY(0); }
+        82%  { opacity:1; transform:translateY(0); }
+        98%  { opacity:0; transform:translateY(-10px); }
+        100% { opacity:0; transform:translateY(16px); }
+      }
+      @keyframes arrowDraw {
+        0%   { opacity:0; stroke-dashoffset:40; }
+        20%  { opacity:1; stroke-dashoffset:0; }
+        80%  { opacity:1; stroke-dashoffset:0; }
+        100% { opacity:0; stroke-dashoffset:40; }
+      }
+      @keyframes loopAnim {
+        0%   { opacity:0; stroke-dashoffset:120; }
+        25%  { opacity:0.6; stroke-dashoffset:0; }
+        75%  { opacity:0.6; stroke-dashoffset:0; }
+        100% { opacity:0; stroke-dashoffset:120; }
+      }
+      @keyframes glowPulse { 0%,100%{opacity:0.2;} 50%{opacity:0.5;} }
+      .lbl { animation: stepIn 6s 0.05s ease-in-out infinite; opacity:0; }
+      .s1  { animation: stepIn 6s 0.10s ease-in-out infinite; opacity:0; }
+      .s2  { animation: stepIn 6s 0.24s ease-in-out infinite; opacity:0; }
+      .s3  { animation: stepIn 6s 0.38s ease-in-out infinite; opacity:0; }
+      .s4  { animation: stepIn 6s 0.52s ease-in-out infinite; opacity:0; }
+      .s5  { animation: stepIn 6s 0.66s ease-in-out infinite; opacity:0; }
+      .s6  { animation: stepIn 6s 0.80s ease-in-out infinite; opacity:0; }
+      .arr { stroke-dasharray:40; animation: arrowDraw 6s ease-in-out infinite; opacity:0; }
+      .ar1 { animation-delay: 0.18s; }
+      .ar2 { animation-delay: 0.32s; }
+      .ar3 { animation-delay: 0.46s; }
+      .ar4 { animation-delay: 0.60s; }
+      .ar5 { animation-delay: 0.74s; }
+      .loop { stroke-dasharray:10 6; animation: loopAnim 6s 0.9s ease-in-out infinite; opacity:0; }
+      .glow { animation: glowPulse 3s ease-in-out infinite; }
+    </style>
+    <linearGradient id="bgW" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F4FF"/>
+      <stop offset="100%" stop-color="#EDE5FF"/>
+    </linearGradient>
+    <linearGradient id="accentW" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#A78BFA"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="lineW" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#8B5CF6" stop-opacity="0"/>
+      <stop offset="40%"  stop-color="#8B5CF6"/>
+      <stop offset="60%"  stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="cardW" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5F0FF"/>
+    </linearGradient>
+    <linearGradient id="cardActive" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#EDE5FF"/>
+      <stop offset="100%" stop-color="#DDD6FE"/>
+    </linearGradient>
+    <filter id="wShadow" x="-5%" y="-5%" width="115%" height="125%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#8B5CF6" flood-opacity="0.18"/>
+    </filter>
+    <marker id="wArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#7C3AED" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect width="880" height="220" fill="url(#bgW)"/>
+  <rect x="0" y="0" width="6" height="220" fill="url(#accentW)"/>
+  <ellipse class="glow" cx="440" cy="110" rx="380" ry="100" fill="#8B5CF6" fill-opacity="0.04"/>
+
+  <!-- Section label -->
+  <g class="lbl">
+    <rect x="30" y="18" width="170" height="28" rx="7" fill="#7C3AED" fill-opacity="0.13" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="115" y="36" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#6D28D9" text-anchor="middle" letter-spacing="2.5" font-weight="700">CLIENT JOURNEY</text>
+  </g>
+
+  <!-- Renewal loop arc -->
+  <path class="loop" d="M812 82 Q812 30 440 30 Q68 30 68 82"
+    fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-opacity="0.5"
+    marker-end="url(#wArr)"/>
+  <text x="440" y="23" font-family="'Segoe UI',Arial,sans-serif" font-size="10.5" fill="#7C3AED" fill-opacity="0.6" text-anchor="middle">↩  Renewal cycle</text>
+
+  <!-- Step 1 -->
+  <g class="s1" filter="url(#wShadow)">
+    <rect x="30" y="88" width="118" height="80" rx="10" fill="url(#cardW)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="30" y="88" width="6" height="80" rx="3" fill="#8B5CF6"/>
+    <text x="89" y="118" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="900" fill="#8B5CF6" text-anchor="middle">01</text>
+    <text x="89" y="137" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="700" fill="#1E1040" text-anchor="middle">Lead Gen</text>
+    <text x="89" y="155" font-family="'Segoe UI',Arial,sans-serif" font-size="10.5" fill="#6D28D9" text-anchor="middle">Sales · Mktg</text>
+  </g>
+  <line class="arr ar1" x1="151" y1="128" x2="173" y2="128" stroke="#7C3AED" stroke-width="2" marker-end="url(#wArr)"/>
+
+  <!-- Step 2 -->
+  <g class="s2" filter="url(#wShadow)">
+    <rect x="176" y="88" width="118" height="80" rx="10" fill="url(#cardW)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="176" y="88" width="6" height="80" rx="3" fill="#7C3AED"/>
+    <text x="235" y="118" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="900" fill="#7C3AED" text-anchor="middle">02</text>
+    <text x="235" y="137" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="700" fill="#1E1040" text-anchor="middle">Brief &amp; CRM</text>
+    <text x="235" y="155" font-family="'Segoe UI',Arial,sans-serif" font-size="10.5" fill="#6D28D9" text-anchor="middle">Sales · CRM</text>
+  </g>
+  <line class="arr ar2" x1="297" y1="128" x2="319" y2="128" stroke="#7C3AED" stroke-width="2" marker-end="url(#wArr)"/>
+
+  <!-- Step 3 (highlighted) -->
+  <g class="s3" filter="url(#wShadow)">
+    <rect x="322" y="82" width="130" height="92" rx="10" fill="url(#cardActive)" stroke="#7C3AED" stroke-width="2.5"/>
+    <rect x="322" y="82" width="6" height="92" rx="3" fill="#7C3AED"/>
+    <text x="387" y="114" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="900" fill="#6D28D9" text-anchor="middle">03</text>
+    <text x="387" y="133" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="800" fill="#1E1040" text-anchor="middle">Analysis &amp;</text>
+    <text x="387" y="150" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="800" fill="#1E1040" text-anchor="middle">Strategy</text>
+    <text x="387" y="166" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#7C3AED" text-anchor="middle">Data · SWOT</text>
+  </g>
+  <line class="arr ar3" x1="455" y1="128" x2="477" y2="128" stroke="#7C3AED" stroke-width="2" marker-end="url(#wArr)"/>
+
+  <!-- Step 4 -->
+  <g class="s4" filter="url(#wShadow)">
+    <rect x="480" y="88" width="118" height="80" rx="10" fill="url(#cardW)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="480" y="88" width="6" height="80" rx="3" fill="#8B5CF6"/>
+    <text x="539" y="118" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="900" fill="#8B5CF6" text-anchor="middle">04</text>
+    <text x="539" y="137" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="700" fill="#1E1040" text-anchor="middle">Proposal</text>
+    <text x="539" y="155" font-family="'Segoe UI',Arial,sans-serif" font-size="10.5" fill="#6D28D9" text-anchor="middle">Contract · Pay</text>
+  </g>
+  <line class="arr ar4" x1="601" y1="128" x2="623" y2="128" stroke="#7C3AED" stroke-width="2" marker-end="url(#wArr)"/>
+
+  <!-- Step 5 (highlighted) -->
+  <g class="s5" filter="url(#wShadow)">
+    <rect x="626" y="82" width="118" height="92" rx="10" fill="url(#cardActive)" stroke="#7C3AED" stroke-width="2.5"/>
+    <rect x="626" y="82" width="6" height="92" rx="3" fill="#7C3AED"/>
+    <text x="685" y="114" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="900" fill="#6D28D9" text-anchor="middle">05</text>
+    <text x="685" y="133" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="800" fill="#1E1040" text-anchor="middle">Execution</text>
+    <text x="685" y="150" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="800" fill="#1E1040" text-anchor="middle">&amp; Publish</text>
+    <text x="685" y="166" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#7C3AED" text-anchor="middle">All Teams</text>
+  </g>
+  <line class="arr ar5" x1="747" y1="128" x2="769" y2="128" stroke="#7C3AED" stroke-width="2" marker-end="url(#wArr)"/>
+
+  <!-- Step 6 -->
+  <g class="s6" filter="url(#wShadow)">
+    <rect x="772" y="88" width="78" height="80" rx="10" fill="url(#cardW)" stroke="#8B5CF6" stroke-width="1.5" stroke-opacity="0.5"/>
+    <rect x="772" y="88" width="6" height="80" rx="3" fill="#8B5CF6"/>
+    <text x="811" y="118" font-family="'Segoe UI',Arial,sans-serif" font-size="12" font-weight="900" fill="#8B5CF6" text-anchor="middle">06</text>
+    <text x="811" y="137" font-family="'Segoe UI',Arial,sans-serif" font-size="11" font-weight="700" fill="#1E1040" text-anchor="middle">Report</text>
+    <text x="811" y="155" font-family="'Segoe UI',Arial,sans-serif" font-size="10.5" fill="#6D28D9" text-anchor="middle">Renewal</text>
+  </g>
+
+  <!-- Bottom caption -->
+  <text x="440" y="197" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#6D28D9" fill-opacity="0.6" text-anchor="middle">17-step proven process — from first contact to measurable results</text>
+
+  <rect x="0" y="216" width="880" height="2.5" fill="url(#lineW)"/>
+</svg>
