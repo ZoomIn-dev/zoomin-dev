@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);transition:background .4s,color .4s}
+
+.light{
+  --bg:#F0EBFF;
+  --surface:#FFFFFF;
+  --text:#1E1040;
+  --muted:#6D28D9;
+  --accent:#7C3AED;
+  --accent2:#A78BFA;
+  --pill-bg:rgba(124,58,237,0.13);
+  --pill-border:rgba(124,58,237,0.45);
+  --card-bg:#FFFFFF;
+  --card-border:rgba(139,92,246,0.35);
+  --card-side:#8B5CF6;
+  --card-side2:#7C3AED;
+  --dot:#8B5CF6;
+  --logo-top:#8B5CF6;
+  --logo-top2:#A78BFA;
+  --logo-bot:#2D1B69;
+  --logo-bot2:#3B2080;
+  --hash-a:#7C3AED;
+  --hash-b:#A78BFA;
+  --tag-bg:rgba(124,58,237,0.12);
+  --tag-text:#4C1D95;
+  --tag-border:rgba(124,58,237,0.4);
+  --step-active:#DDD6FE;
+  --step-active-border:#7C3AED;
+  --line-a:#8B5CF6;
+  --line-b:#7C3AED;
+  --svgbg1:#F5F0FF;
+  --svgbg2:#EDE5FF;
+  --body-text:#4C1D95;
+  --sub-text:rgba(109,40,217,0.65);
+  --arc:#7C3AED;
+}
+.dark{
+  --bg:#0A0818;
+  --surface:#130F2A;
+  --text:#F0EEFF;
+  --muted:#A78BFA;
+  --accent:#8B5CF6;
+  --accent2:#C4B5FD;
+  --pill-bg:rgba(139,92,246,0.18);
+  --pill-border:rgba(139,92,246,0.5);
+  --card-bg:#1A1530;
+  --card-border:rgba(139,92,246,0.4);
+  --card-side:#8B5CF6;
+  --card-side2:#7C3AED;
+  --dot:#8B5CF6;
+  --logo-top:#8B5CF6;
+  --logo-top2:#A78BFA;
+  --logo-bot:#1E1040;
+  --logo-bot2:#2D1B69;
+  --hash-a:#8B5CF6;
+  --hash-b:#C4B5FD;
+  --tag-bg:rgba(139,92,246,0.2);
+  --tag-text:#C4B5FD;
+  --tag-border:rgba(139,92,246,0.5);
+  --step-active:#2D1F60;
+  --step-active-border:#A78BFA;
+  --line-a:#8B5CF6;
+  --line-b:#A78BFA;
+  --svgbg1:#0F0D1A;
+  --svgbg2:#130F2A;
+  --body-text:#A78BFA;
+  --sub-text:rgba(167,139,250,0.7);
+  --arc:#A78BFA;
+}
+
+.toolbar{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 24px;
+  background:var(--surface);
+  border-bottom:1.5px solid var(--pill-border);
+  position:sticky;top:0;z-index:10;
+}
+.brand{display:flex;align-items:center;gap:10px}
+.brand-logo{width:36px;height:36px}
+.brand-name{font-size:18px;font-weight:800;color:var(--text)}
+.brand-name span{color:var(--accent)}
+.toggle-wrap{display:flex;align-items:center;gap:12px}
+.toggle-label{font-size:13px;font-weight:600;color:var(--muted);letter-spacing:1.5px}
+.toggle{
+  position:relative;width:72px;height:36px;
+  background:var(--pill-bg);
+  border:1.5px solid var(--pill-border);
+  border-radius:18px;cursor:pointer;
+  transition:background .3s,border-color .3s;
+  display:flex;align-items:center;padding:3px;
+}
+.toggle .knob{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--accent);
+  transition:transform .3s,background .3s;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+}
+.dark .toggle .knob{transform:translateX(36px)}
+.light .toggle .knob{transform:translateX(0)}
+
+.dl-btn{
+  padding:8px 18px;border-radius:20px;
+  background:var(--accent);color:#fff;
+  border:none;cursor:pointer;
+  font-size:13px;font-weight:700;letter-spacing:.5px;
+  transition:opacity .2s,transform .15s;
+}
+.dl-btn:hover{opacity:.85;transform:scale(1.03)}
+
+.banners{padding:24px 20px;display:flex;flex-direction:column;gap:6px}
+
+.banner-label{
+  font-size:10px;font-weight:700;letter-spacing:2px;
+  color:var(--muted);padding:4px 0 2px 4px;
+  text-transform:uppercase;
+}
+
+svg.banner{width:100%;border-radius:10px;display:block;overflow:hidden;transition:all .4s}
+
+/* SVG theming via CSS custom properties inherited */
+.banner .bg-rect{fill:var(--svgbg1);}
+.banner .bg-rect2{fill:var(--svgbg2);}
+.banner text.main{fill:var(--text)}
+.banner text.accent{fill:var(--accent)}
+.banner text.accent2{fill:var(--accent2)}
+.banner text.muted{fill:var(--body-text)}
+.banner text.sub{fill:var(--sub-text)}
+.banner text.tag-t{fill:var(--tag-text)}
+.banner .logo-top{fill:var(--logo-top)}
+.banner .logo-top2{fill:var(--logo-top2)}
+.banner .logo-bot{fill:var(--logo-bot)}
+.banner .logo-bot2{fill:var(--logo-bot2)}
+.banner .card-bg{fill:var(--card-bg)}
+.banner .card-side{fill:var(--card-side)}
+.banner .card-side2{fill:var(--card-side2)}
+.banner .card-bord{stroke:var(--card-border)}
+.banner .tag-bg{fill:var(--tag-bg);stroke:var(--tag-border)}
+.banner .dot-c{fill:var(--dot)}
+.banner .step-active{fill:var(--step-active);stroke:var(--step-active-border);stroke-width:2}
+.banner .arc-path{stroke:var(--arc)}
+.banner .arr-path{stroke:var(--arc)}
+.banner .line-grad stop.la{stop-color:var(--line-a)}
+.banner .line-grad stop.lb{stop-color:var(--line-b)}
+.banner .hash-a{fill:var(--hash-a)}
+.banner .hash-b{fill:var(--hash-b)}
+.banner .pill-bg{fill:var(--pill-bg);stroke:var(--pill-border)}
+
+/* Animations — all 6s loop */
+@keyframes fsi{0%{opacity:0;transform:translateY(16px)}18%{opacity:1;transform:translateY(0)}82%{opacity:1;transform:translateY(0)}98%{opacity:0;transform:translateY(-8px)}100%{opacity:0;transform:translateY(16px)}}
+@keyframes pop6{0%{opacity:0;transform:scale(.84)}18%{opacity:1;transform:scale(1)}82%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(.84)}}
+@keyframes db{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes lp{0%{opacity:0;stroke-dashoffset:120}25%{opacity:.7;stroke-dashoffset:0}75%{opacity:.7;stroke-dashoffset:0}100%{opacity:0;stroke-dashoffset:120}}
+@keyframes ad{0%{opacity:0;stroke-dashoffset:40}20%{opacity:1;stroke-dashoffset:0}80%{opacity:1;stroke-dashoffset:0}100%{opacity:0;stroke-dashoffset:40}}
+@keyframes hashAnim{0%,100%{opacity:.8}50%{opacity:1}}
+
+.a1{animation:fsi 6s .10s ease-in-out infinite;opacity:0}
+.a2{animation:fsi 6s .30s ease-in-out infinite;opacity:0}
+.a3{animation:fsi 6s .50s ease-in-out infinite;opacity:0}
+.a4{animation:fsi 6s .70s ease-in-out infinite;opacity:0}
+.logo6{animation:pop6 6s .05s ease-in-out infinite;opacity:0}
+.c1{animation:pop6 6s .12s ease-in-out infinite;opacity:0}
+.c2{animation:pop6 6s .26s ease-in-out infinite;opacity:0}
+.c3{animation:pop6 6s .40s ease-in-out infinite;opacity:0}
+.c4{animation:pop6 6s .54s ease-in-out infinite;opacity:0}
+.c5{animation:pop6 6s .68s ease-in-out infinite;opacity:0}
+.c6{animation:pop6 6s .82s ease-in-out infinite;opacity:0}
+.s1{animation:fsi 6s .10s ease-in-out infinite;opacity:0}
+.s2{animation:fsi 6s .24s ease-in-out infinite;opacity:0}
+.s3{animation:fsi 6s .38s ease-in-out infinite;opacity:0}
+.s4{animation:fsi 6s .52s ease-in-out infinite;opacity:0}
+.s5{animation:fsi 6s .66s ease-in-out infinite;opacity:0}
+.s6{animation:fsi 6s .80s ease-in-out infinite;opacity:0}
+.d1{animation:db 6s .0s ease-in-out infinite}
+.d2{animation:db 6s .5s ease-in-out infinite}
+.d3{animation:db 6s 1s ease-in-out infinite}
+.d4{animation:db 6s 1.5s ease-in-out infinite}
+.d5{animation:db 6s 2s ease-in-out infinite}
+.d6{animation:db 6s 2.5s ease-in-out infinite}
+.loop6{stroke-dasharray:10 6;animation:lp 6s .9s ease-in-out infinite;opacity:0}
+.arr1{stroke-dasharray:40;animation:ad 6s .18s ease-in-out infinite;opacity:0}
+.arr2{stroke-dasharray:40;animation:ad 6s .32s ease-in-out infinite;opacity:0}
+.arr3{stroke-dasharray:40;animation:ad 6s .46s ease-in-out infinite;opacity:0}
+.arr4{stroke-dasharray:40;animation:ad 6s .60s ease-in-out infinite;opacity:0}
+.arr5{stroke-dasharray:40;animation:ad 6s .74s ease-in-out infinite;opacity:0}
+.hashanim{animation:hashAnim 3s ease-in-out infinite}
+</style>
+</head>
+<body class="light">
+
+<div class="toolbar">
+  <div class="brand">
+    <svg class="brand-logo" viewBox="0 0 60 66">
+      <polygon points="0,0 60,0 60,22 16,22" fill="#8B5CF6"/>
+      <polygon points="44,22 60,22 60,0" fill="#A78BFA"/>
+      <polygon points="0,26 44,26 60,48 60,66 16,66 0,44" fill="#2D1B69"/>
+    </svg>
+    <span class="brand-name">zoom <span>in</span> — README Themes</span>
+  </div>
+  <div class="toggle-wrap">
+    <span class="toggle-label" id="mode-label">LIGHT</span>
+    <div class="toggle" id="toggle" onclick="switchTheme()">
+      <div class="knob" id="knob">☀️</div>
+    </div>
+    <button class="dl-btn" onclick="downloadAll()">⬇ Download SVGs</button>
+  </div>
+</div>
+
+<div class="banners">
+
+  <div class="banner-label">01 — Header</div>
+  <!-- HEADER -->
+  <svg class="banner" viewBox="0 0 880 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="lgH" x1="0" y1="0" x2="1" y2="0">
+        <stop class="la line-grad" offset="0%" stop-opacity="0"/>
+        <stop class="la line-grad" offset="35%"/>
+        <stop class="lb line-grad" offset="65%"/>
+        <stop class="lb line-grad" offset="100%" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <rect class="bg-rect" width="880" height="200"/>
+    <!-- dots TL -->
+    <circle class="dot-c d1" cx="28" cy="28" r="3"/><circle class="dot-c d2" cx="52" cy="28" r="3"/><circle class="dot-c d3" cx="76" cy="28" r="3"/>
+    <circle class="dot-c d4" cx="28" cy="52" r="3"/><circle class="dot-c d5" cx="52" cy="52" r="3"/><circle class="dot-c d6" cx="76" cy="52" r="3"/>
+    <circle class="dot-c d2" cx="28" cy="76" r="3"/><circle class="dot-c d3" cx="52" cy="76" r="3"/><circle class="dot-c d4" cx="76" cy="76" r="3"/>
+    <!-- dots BR -->
+    <circle class="dot-c d3" cx="800" cy="130" r="3"/><circle class="dot-c d4" cx="824" cy="130" r="3"/><circle class="dot-c d5" cx="848" cy="130" r="3"/>
+    <circle class="dot-c d5" cx="800" cy="154" r="3"/><circle class="dot-c d6" cx="824" cy="154" r="3"/><circle class="dot-c d1" cx="848" cy="154" r="3"/>
+    <!-- diagonal -->
+    <line x1="720" y1="10" x2="820" y2="195" stroke-width="2" class="dot-c" opacity=".08"/>
+    <line x1="750" y1="10" x2="850" y2="195" stroke-width="1.5" class="dot-c" opacity=".05"/>
+    <!-- bottom line -->
+    <rect x="0" y="193" width="880" height="3" fill="url(#lgH)"/>
+    <circle class="dot-c" cx="110" cy="194" r="4" opacity=".7"/>
+    <circle class="dot-c" cx="770" cy="194" r="4" opacity=".7"/>
+    <!-- logo -->
+    <g class="logo6" transform="translate(106,52)">
+      <polygon class="logo-top" points="0,0 64,0 64,24 18,24"/>
+      <polygon class="logo-top2" points="46,24 64,24 64,0"/>
+      <polygon class="logo-bot" points="0,28 46,28 64,52 64,66 18,66 0,44"/>
+      <polygon class="logo-bot2" points="18,66 64,66 64,52"/>
+    </g>
+    <!-- wordmark -->
+    <g class="a2">
+      <text class="main" x="198" y="104" font-size="40" font-weight="900" letter-spacing="-1">zoom</text>
+      <text class="accent" x="322" y="104" font-size="40" font-weight="900" letter-spacing="-1"> in</text>
+    </g>
+    <!-- tagline -->
+    <g class="a3">
+      <text class="muted" x="198" y="130" font-size="13" font-weight="600" letter-spacing="3">MARKETING AGENCY  ·  CAIRO, EGYPT</text>
+    </g>
+    <!-- pill -->
+    <g class="a4">
+      <rect class="pill-bg" x="197" y="142" width="180" height="30" rx="15"/>
+      <text class="accent" x="287" y="161" font-size="12.5" font-weight="700" text-anchor="middle">#growwithzoomin</text>
+    </g>
+  </svg>
+
+  <div class="banner-label">02 — About</div>
+  <!-- ABOUT -->
+  <svg class="banner" viewBox="0 0 880 220" xmlns="http://www.w3.org/2000/svg">
+    <rect class="bg-rect" width="880" height="220"/>
+    <rect class="card-side" x="0" y="0" width="6" height="220"/>
+    <!-- label -->
+    <g class="a1">
+      <rect class="tag-bg" x="30" y="20" width="114" height="28" rx="7"/>
+      <text class="tag-t" x="87" y="38" font-size="12" text-anchor="middle" letter-spacing="2.5" font-weight="700">ABOUT US</text>
+    </g>
+    <!-- heading -->
+    <g class="a2">
+      <text class="main" x="30" y="88" font-size="28" font-weight="900">We help businesses</text>
+      <text class="accent" x="30" y="120" font-size="28" font-weight="900">grow.</text>
+    </g>
+    <!-- desc -->
+    <g class="a3">
+      <text class="muted" x="30" y="146" font-size="13.5">Strategy · Creativity · Analytics — one seamless workflow.</text>
+      <text class="sub" x="30" y="166" font-size="13.5">From the first lead to contract renewal, we handle it all.</text>
+    </g>
+    <!-- pills row -->
+    <g class="a4">
+      <text class="accent" x="30" y="192" font-size="11" letter-spacing="2.5" font-weight="700">WE WORK WITH</text>
+      <rect class="tag-bg" x="30" y="200" width="108" height="24" rx="12"/>
+      <text class="tag-t" x="84" y="216" font-size="12" text-anchor="middle" font-weight="700">SMBs</text>
+      <rect class="tag-bg" x="148" y="200" width="158" height="24" rx="12"/>
+      <text class="tag-t" x="227" y="216" font-size="12" text-anchor="middle" font-weight="700">Restaurants &amp; Cafés</text>
+      <rect class="tag-bg" x="316" y="200" width="152" height="24" rx="12"/>
+      <text class="tag-t" x="392" y="216" font-size="12" text-anchor="middle" font-weight="700">Startup Founders</text>
+      <rect class="tag-bg" x="478" y="200" width="150" height="24" rx="12"/>
+      <text class="tag-t" x="553" y="216" font-size="12" text-anchor="middle" font-weight="700">Growing Brands</text>
+    </g>
+  </svg>
+
+  <div class="banner-label">03 — Services</div>
+  <!-- SERVICES -->
+  <svg class="banner" viewBox="0 0 880 290" xmlns="http://www.w3.org/2000/svg">
+    <rect class="bg-rect" width="880" height="290"/>
+    <rect class="card-side" x="0" y="0" width="6" height="290"/>
+    <!-- label -->
+    <g class="a1">
+      <rect class="tag-bg" x="30" y="16" width="130" height="28" rx="7"/>
+      <text class="tag-t" x="95" y="34" font-size="12" text-anchor="middle" letter-spacing="2.5" font-weight="700">WHAT WE DO</text>
+    </g>
+    <!-- row 1 -->
+    <g class="c1">
+      <rect class="card-bg card-bord" x="30" y="58" width="264" height="96" rx="10" stroke-width="1.2"/>
+      <rect class="card-side" x="30" y="58" width="5" height="96" rx="2"/>
+      <text class="main" x="52" y="84" font-size="14" font-weight="800">📱 Social Media Mgmt</text>
+      <text class="muted" x="52" y="104" font-size="12.5">Strategy · Content Calendar</text>
+      <text class="sub" x="52" y="122" font-size="12.5">Posting · Growth · Engagement</text>
+      <text class="accent" x="52" y="142" font-size="10.5" font-weight="700">▸ Core Service</text>
+    </g>
+    <g class="c2">
+      <rect class="card-bg card-bord" x="308" y="58" width="264" height="96" rx="10" stroke-width="1.2"/>
+      <rect class="card-side2" x="308" y="58" width="5" height="96" rx="2"/>
+      <text class="main" x="330" y="84" font-size="14" font-weight="800">📣 Paid Advertising</text>
+      <text class="muted" x="330" y="104" font-size="12.5">Campaign Creation &amp; Mgmt</text>
+      <text class="sub" x="330" y="122" font-size="12.5">Media Buying · Optimization</text>
+      <text class="accent" x="330" y="142" font-size="10.5" font-weight="700">▸ Core Service</text>
+    </g>
+    <g class="c3">
+      <rect class="card-bg card-bord" x="586" y="58" width="264" height="96" rx="10" stroke-width="1.2"/>
+      <rect class="card-side" x="586" y="58" width="5" height="96" rx="2"/>
+      <text class="main" x="608" y="84" font-size="14" font-weight="800">✏️ Content Creation</text>
+      <text class="muted" x="608" y="104" font-size="12.5">Copywriting · Video Production</text>
+      <text class="sub" x="608" y="122" font-size="12.5">Graphic Design · Scripts</text>
+      <text class="accent" x="608" y="142" font-size="10.5" font-weight="700">▸ Core Service</text>
+    </g>
+    <!-- row 2 -->
+    <g class="c4">
+      <rect class="card-bg card-bord" x="30" y="170" width="264" height="96" rx="10" stroke-width="1.2"/>
+      <rect class="card-side2" x="30" y="170" width="5" height="96" rx="2"/>
+      <text class="main" x="52" y="196" font-size="14" font-weight="800">📊 Data Analysis</text>
+      <text class="muted" x="52" y="216" font-size="12.5">SWOT · Competitor Analysis</text>
+      <text class="sub" x="52" y="234" font-size="12.5">Market Research · Reporting</text>
+      <text class="accent" x="52" y="254" font-size="10.5" font-weight="700">▸ Core Service</text>
+    </g>
+    <g class="c5">
+      <rect class="card-bg card-bord" x="308" y="170" width="264" height="96" rx="10" stroke-width="1.2"/>
+      <rect class="card-side" x="308" y="170" width="5" height="96" rx="2"/>
+      <text class="main" x="330" y="196" font-size="14" font-weight="800">🎯 Marketing Strategy</text>
+      <text class="muted" x="330" y="216" font-size="12.5">Full Strategic Planning</text>
+      <text class="sub" x="330" y="234" font-size="12.5">Tailored to Your Goals</text>
+      <text class="accent" x="330" y="254" font-size="10.5" font-weight="700">▸ Core Service</text>
+    </g>
+    <g class="c6">
+      <rect class="card-bg card-bord" x="586" y="170" width="264" height="96" rx="10" stroke-width="1.2"/>
+      <rect class="card-side2" x="586" y="170" width="5" height="96" rx="2"/>
+      <text class="main" x="608" y="196" font-size="14" font-weight="800">💻 Web Development</text>
+      <text class="muted" x="608" y="216" font-size="12.5">Websites · E-commerce</text>
+      <text class="sub" x="608" y="234" font-size="12.5">Landing Pages · Stores</text>
+      <text class="accent" x="608" y="254" font-size="10.5" font-weight="700">▸ Core Service</text>
+    </g>
+  </svg>
+
+  <div class="banner-label">04 — Workflow</div>
+  <!-- WORKFLOW -->
+  <svg class="banner" viewBox="0 0 880 210" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <marker id="wA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+        <path class="arr-path" d="M1 1L9 5L1 9" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </marker>
+    </defs>
+    <rect class="bg-rect" width="880" height="210"/>
+    <rect class="card-side" x="0" y="0" width="6" height="210"/>
+    <!-- label -->
+    <g class="a1">
+      <rect class="tag-bg" x="30" y="16" width="168" height="28" rx="7"/>
+      <text class="tag-t" x="114" y="34" font-size="12" text-anchor="middle" letter-spacing="2.5" font-weight="700">CLIENT JOURNEY</text>
+    </g>
+    <!-- loop arc -->
+    <path class="arc-path loop6" d="M812 78 Q812 28 440 28 Q68 28 68 78" fill="none" stroke-width="1.8" stroke-opacity=".55" marker-end="url(#wA)"/>
+    <text class="sub" x="440" y="21" font-size="10.5" text-anchor="middle">↩ Renewal cycle</text>
+    <!-- step 1 -->
+    <g class="s1">
+      <rect class="card-bg card-bord" x="30" y="84" width="114" height="76" rx="9" stroke-width="1.2"/>
+      <rect class="card-side" x="30" y="84" width="5" height="76" rx="2"/>
+      <text class="accent" x="87" y="112" font-size="13" font-weight="900" text-anchor="middle">01</text>
+      <text class="main" x="87" y="130" font-size="12" font-weight="700" text-anchor="middle">Lead Gen</text>
+      <text class="sub" x="87" y="148" font-size="10.5" text-anchor="middle">Sales · Mktg</text>
+    </g>
+    <line class="arr-path arr1" x1="147" y1="122" x2="167" y2="122" stroke-width="2" marker-end="url(#wA)"/>
+    <!-- step 2 -->
+    <g class="s2">
+      <rect class="card-bg card-bord" x="170" y="84" width="114" height="76" rx="9" stroke-width="1.2"/>
+      <rect class="card-side2" x="170" y="84" width="5" height="76" rx="2"/>
+      <text class="accent2" x="227" y="112" font-size="13" font-weight="900" text-anchor="middle">02</text>
+      <text class="main" x="227" y="130" font-size="12" font-weight="700" text-anchor="middle">Brief &amp; CRM</text>
+      <text class="sub" x="227" y="148" font-size="10.5" text-anchor="middle">Sales · CRM</text>
+    </g>
+    <line class="arr-path arr2" x1="287" y1="122" x2="307" y2="122" stroke-width="2" marker-end="url(#wA)"/>
+    <!-- step 3 active -->
+    <g class="s3">
+      <rect class="step-active" x="310" y="78" width="128" height="88" rx="9"/>
+      <rect class="card-side2" x="310" y="78" width="5" height="88" rx="2"/>
+      <text class="accent" x="374" y="108" font-size="13" font-weight="900" text-anchor="middle">03</text>
+      <text class="main" x="374" y="126" font-size="12" font-weight="800" text-anchor="middle">Analysis &amp;</text>
+      <text class="main" x="374" y="142" font-size="12" font-weight="800" text-anchor="middle">Strategy</text>
+      <text class="muted" x="374" y="156" font-size="10" text-anchor="middle">Data · SWOT</text>
+    </g>
+    <line class="arr-path arr3" x1="441" y1="122" x2="461" y2="122" stroke-width="2" marker-end="url(#wA)"/>
+    <!-- step 4 -->
+    <g class="s4">
+      <rect class="card-bg card-bord" x="464" y="84" width="114" height="76" rx="9" stroke-width="1.2"/>
+      <rect class="card-side" x="464" y="84" width="5" height="76" rx="2"/>
+      <text class="accent" x="521" y="112" font-size="13" font-weight="900" text-anchor="middle">04</text>
+      <text class="main" x="521" y="130" font-size="12" font-weight="700" text-anchor="middle">Proposal</text>
+      <text class="sub" x="521" y="148" font-size="10.5" text-anchor="middle">Contract · Pay</text>
+    </g>
+    <line class="arr-path arr4" x1="581" y1="122" x2="601" y2="122" stroke-width="2" marker-end="url(#wA)"/>
+    <!-- step 5 active -->
+    <g class="s5">
+      <rect class="step-active" x="604" y="78" width="114" height="88" rx="9"/>
+      <rect class="card-side" x="604" y="78" width="5" height="88" rx="2"/>
+      <text class="accent" x="661" y="108" font-size="13" font-weight="900" text-anchor="middle">05</text>
+      <text class="main" x="661" y="126" font-size="12" font-weight="800" text-anchor="middle">Execution</text>
+      <text class="main" x="661" y="142" font-size="12" font-weight="800" text-anchor="middle">&amp; Publish</text>
+      <text class="muted" x="661" y="156" font-size="10" text-anchor="middle">All Teams</text>
+    </g>
+    <line class="arr-path arr5" x1="721" y1="122" x2="741" y2="122" stroke-width="2" marker-end="url(#wA)"/>
+    <!-- step 6 -->
+    <g class="s6">
+      <rect class="card-bg card-bord" x="744" y="84" width="114" height="76" rx="9" stroke-width="1.2"/>
+      <rect class="card-side2" x="744" y="84" width="5" height="76" rx="2"/>
+      <text class="accent2" x="801" y="112" font-size="13" font-weight="900" text-anchor="middle">06</text>
+      <text class="main" x="801" y="130" font-size="12" font-weight="700" text-anchor="middle">Report</text>
+      <text class="sub" x="801" y="148" font-size="10.5" text-anchor="middle">&amp; Renewal</text>
+    </g>
+    <text class="sub" x="440" y="192" font-size="12" text-anchor="middle">17-step proven process — from first contact to measurable results</text>
+  </svg>
+
+  <div class="banner-label">05 — Footer</div>
+  <!-- FOOTER -->
+  <svg class="banner" viewBox="0 0 880 155" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="lgF" x1="0" y1="0" x2="1" y2="0">
+        <stop class="la" offset="0%" stop-opacity="0"/>
+        <stop class="la" offset="20%"/>
+        <stop class="lb" offset="50%"/>
+        <stop class="lb" offset="80%"/>
+        <stop class="lb" offset="100%" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <rect class="bg-rect" width="880" height="155"/>
+    <rect x="0" y="0" width="880" height="3.5" fill="url(#lgF)"/>
+    <circle class="dot-c d1" cx="220" cy="1.75" r="4"/>
+    <circle class="dot-c d3" cx="440" cy="1.75" r="4"/>
+    <circle class="dot-c d5" cx="660" cy="1.75" r="4"/>
+    <!-- contact -->
+    <g class="a1">
+      <text class="accent" x="30" y="34" font-size="11" letter-spacing="2.5" font-weight="700">CONTACT</text>
+      <text class="muted" x="30" y="56" font-size="13">✉  zoominidevelopment@gmail.com</text>
+      <text class="muted" x="30" y="76" font-size="13">📞  +20 109 139 9366  ·  +20 150 048 9966</text>
+      <text class="muted" x="30" y="96" font-size="13">🌐  www.zoomin.com</text>
+      <text class="sub" x="30" y="116" font-size="12">📍  Cairo, Egypt</text>
+    </g>
+    <!-- center brand -->
+    <g class="a2">
+      <g transform="translate(382,28)">
+        <polygon class="logo-top" points="0,0 34,0 34,12 9,12"/>
+        <polygon class="logo-top2" points="25,12 34,12 34,0"/>
+        <polygon class="logo-bot" points="0,15 25,15 34,27 34,34 9,34 0,22"/>
+      </g>
+      <text class="main" x="425" y="50" font-size="15" font-weight="800">zoom <tspan class="accent">in</tspan></text>
+      <text class="accent hashanim" x="440" y="84" font-size="20" font-weight="900" text-anchor="middle">#growwithzoomin</text>
+      <text class="sub" x="440" y="106" font-size="12" text-anchor="middle">A Business Without Marketing Is Hiding Its Light.</text>
+    </g>
+    <!-- socials -->
+    <g class="a3">
+      <text class="accent" x="850" y="34" font-size="11" letter-spacing="2.5" font-weight="700" text-anchor="end">FOLLOW US</text>
+      <rect class="tag-bg" x="692" y="44" width="80" height="26" rx="13"/>
+      <text class="tag-t" x="732" y="61" font-size="12" text-anchor="middle" font-weight="700">LinkedIn</text>
+      <rect class="tag-bg" x="780" y="44" width="84" height="26" rx="13"/>
+      <text class="tag-t" x="822" y="61" font-size="12" text-anchor="middle" font-weight="700">Instagram</text>
+      <rect class="tag-bg" x="692" y="78" width="80" height="26" rx="13"/>
+      <text class="tag-t" x="732" y="95" font-size="12" text-anchor="middle" font-weight="700">YouTube</text>
+      <rect class="tag-bg" x="780" y="78" width="84" height="26" rx="13"/>
+      <text class="tag-t" x="822" y="95" font-size="12" text-anchor="middle" font-weight="700">TikTok</text>
+      <rect class="tag-bg" x="692" y="112" width="172" height="26" rx="13"/>
+      <text class="tag-t" x="778" y="129" font-size="11.5" text-anchor="middle">zoomin.com/portfolio</text>
+    </g>
+  </svg>
+
+</div>
+
+<script>
+let isDark = false;
+
+function switchTheme() {
+  isDark = !isDark;
+  document.body.className = isDark ? 'dark' : 'light';
+  document.getElementById('mode-label').textContent = isDark ? 'DARK' : 'LIGHT';
+  document.getElementById('knob').textContent = isDark ? '🌙' : '☀️';
+}
+
+function svgToDataURL(svgEl) {
+  const clone = svgEl.cloneNode(true);
+  const cs = getComputedStyle(document.body);
+  const vars = ['--svgbg1','--svgbg2','--text','--accent','--accent2','--muted','--body-text','--sub-text',
+    '--tag-bg','--tag-text','--tag-border','--card-bg','--card-border','--card-side','--card-side2',
+    '--dot','--logo-top','--logo-top2','--logo-bot','--logo-bot2','--step-active','--step-active-border',
+    '--arc','--hash-a','--hash-b','--pill-bg','--pill-border','--line-a','--line-b'];
+  const resolved = {};
+  vars.forEach(v => resolved[v] = cs.getPropertyValue(v).trim());
+
+  const style = document.createElement('style');
+  style.textContent = `
+    .bg-rect{fill:${resolved['--svgbg1']}}
+    .bg-rect2{fill:${resolved['--svgbg2']}}
+    text.main{fill:${resolved['--text']}}
+    text.accent{fill:${resolved['--accent']}}
+    text.accent2{fill:${resolved['--accent2']}}
+    text.muted{fill:${resolved['--body-text']}}
+    text.sub{fill:${resolved['--sub-text']}}
+    text.tag-t{fill:${resolved['--tag-text']}}
+    .dot-c{fill:${resolved['--dot']}}
+    .logo-top{fill:${resolved['--logo-top']}}
+    .logo-top2{fill:${resolved['--logo-top2']}}
+    .logo-bot{fill:${resolved['--logo-bot']}}
+    .logo-bot2{fill:${resolved['--logo-bot2']}}
+    .card-bg{fill:${resolved['--card-bg']}}
+    .card-bord{stroke:${resolved['--card-border']}}
+    .card-side{fill:${resolved['--card-side']}}
+    .card-side2{fill:${resolved['--card-side2']}}
+    .tag-bg{fill:${resolved['--tag-bg']};stroke:${resolved['--tag-border']};stroke-width:1.5}
+    .step-active{fill:${resolved['--step-active']};stroke:${resolved['--step-active-border']};stroke-width:2}
+    .arc-path,.arr-path{stroke:${resolved['--arc']}}
+    .la{stop-color:${resolved['--line-a']}}
+    .lb{stop-color:${resolved['--line-b']}}
+    .pill-bg{fill:${resolved['--pill-bg']};stroke:${resolved['--pill-border']};stroke-width:1.5}
+    .hashanim{fill:${resolved['--accent']}}
+  `;
+  clone.insertBefore(style, clone.firstChild);
+
+  const allG = clone.querySelectorAll('.a1,.a2,.a3,.a4,.logo6,.c1,.c2,.c3,.c4,.c5,.c6,.s1,.s2,.s3,.s4,.s5,.s6');
+  allG.forEach(g => { g.style.opacity = '1'; g.style.animation = 'none'; g.style.transform = 'none'; });
+  const dots = clone.querySelectorAll('.d1,.d2,.d3,.d4,.d5,.d6');
+  dots.forEach(d => { d.style.opacity = '1'; d.style.animation = 'none'; });
+  const loops = clone.querySelectorAll('.loop6,.arr1,.arr2,.arr3,.arr4,.arr5');
+  loops.forEach(l => { l.style.opacity = '1'; l.style.animation = 'none'; l.style.strokeDashoffset = '0'; });
+
+  const serializer = new XMLSerializer();
+  const svgStr = serializer.serializeToString(clone);
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgStr);
+}
+
+function downloadAll() {
+  const banners = document.querySelectorAll('svg.banner');
+  const names = ['header','about','services','workflow','footer'];
+  const theme = isDark ? 'dark' : 'light';
+  banners.forEach((svg, i) => {
+    setTimeout(() => {
+      const url = svgToDataURL(svg);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `zoomin-${names[i]}-${theme}.svg`;
+      a.click();
+    }, i * 300);
+  });
+}
+</script>
+</body>
+</html>
