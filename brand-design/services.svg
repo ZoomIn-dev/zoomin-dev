@@ -122,4 +122,5 @@
     <text x="608" y="270" font-family="'Segoe UI',Arial,sans-serif" font-size="10" fill="#7C3AED" font-weight="700">▸ Core Service</text>
   </g>
 
-  <rect x="0
+  <rect x="0" y="297" width="880" height="2.5" fill="url(#lineS)"/>
+</svg>
