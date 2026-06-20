@@ -1,10 +1,1 @@
-<img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/brand-design/header.svg" width="100%"/>
-<br/>
-<img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/brand-design/about.svg" width="100%"/>
-<br/>
-<img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/brand-design/services.svg" width="100%"/>
-<br/>
-<img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/brand-design/workflow.svg" width="100%"/>
-<br/>
-<img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/brand-design/footer.svg" width="100%"/>
-         
+<img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/brand-design/header.svg" width="100%" />  <img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/brand-design/about.svg" width="100%" />  <img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/brand-design/services.svg" width="100%"/>  <img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/brand-design/workflow.svg" width="100%"/>  <img src="https://raw.githubusercontent.com/ZoomIn-dev/ZoomIn-dev/main/brand-design/footer.svg" width="100%"/>
