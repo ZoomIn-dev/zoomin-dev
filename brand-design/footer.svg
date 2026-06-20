@@ -1,0 +1,98 @@
+<svg width="880" height="160" viewBox="0 0 880 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes fadeUp {
+        0%   { opacity:0; transform:translateY(12px); }
+        18%  { opacity:1; transform:translateY(0); }
+        82%  { opacity:1; transform:translateY(0); }
+        100% { opacity:0; transform:translateY(12px); }
+      }
+      @keyframes dotBlink {
+        0%,100% { opacity:0.2; r:3; }
+        50%     { opacity:1;   r:5; }
+      }
+      @keyframes glowPulse { 0%,100%{opacity:0.15;} 50%{opacity:0.4;} }
+      @keyframes hashGlow {
+        0%,100% { fill: #7C3AED; }
+        50%     { fill: #A78BFA; }
+      }
+      .f1  { animation: fadeUp 6s 0.1s  ease-in-out infinite; opacity:0; }
+      .f2  { animation: fadeUp 6s 0.3s  ease-in-out infinite; opacity:0; }
+      .f3  { animation: fadeUp 6s 0.5s  ease-in-out infinite; opacity:0; }
+      .glow { animation: glowPulse 3s ease-in-out infinite; }
+      .d1  { animation: dotBlink 6s 0.0s ease-in-out infinite; }
+      .d2  { animation: dotBlink 6s 1.0s ease-in-out infinite; }
+      .d3  { animation: dotBlink 6s 2.0s ease-in-out infinite; }
+      .hash { animation: hashGlow 3s ease-in-out infinite; }
+    </style>
+    <linearGradient id="bgF" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F8F4FF"/>
+      <stop offset="100%" stop-color="#EDE5FF"/>
+    </linearGradient>
+    <linearGradient id="topLineF" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#8B5CF6" stop-opacity="0"/>
+      <stop offset="20%"  stop-color="#8B5CF6"/>
+      <stop offset="50%"  stop-color="#C4B5FD"/>
+      <stop offset="80%"  stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="hashGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#A78BFA"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="880" height="160" fill="url(#bgF)"/>
+
+  <!-- Top line -->
+  <rect x="0" y="0" width="880" height="3.5" fill="url(#topLineF)"/>
+  <circle class="d1" cx="220" cy="1.75" r="4" fill="#8B5CF6"/>
+  <circle class="d2" cx="440" cy="1.75" r="4" fill="#A78BFA"/>
+  <circle class="d3" cx="660" cy="1.75" r="4" fill="#7C3AED"/>
+
+  <!-- Glow -->
+  <ellipse class="glow" cx="440" cy="160" rx="320" ry="80" fill="#8B5CF6" fill-opacity="0.1"/>
+
+  <!-- LEFT: Contact -->
+  <g class="f1">
+    <text x="30" y="36" font-family="'Segoe UI',Arial,sans-serif" font-size="11" fill="#7C3AED" letter-spacing="2.5" font-weight="700">CONTACT</text>
+    <text x="30" y="60"  font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#4C1D95">✉  zoominidevelopment@gmail.com</text>
+    <text x="30" y="82"  font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#6D28D9">📞  +20 109 139 9366  ·  +20 150 048 9966</text>
+    <text x="30" y="104" font-family="'Segoe UI',Arial,sans-serif" font-size="13" fill="#6D28D9">🌐  www.zoomin.com</text>
+    <text x="30" y="126" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#8B5CF6">📍  Cairo, Egypt</text>
+  </g>
+
+  <!-- CENTER: Brand + hashtag -->
+  <g class="f2">
+    <!-- Mini ZI logo -->
+    <g transform="translate(382, 32)">
+      <polygon points="0,0 34,0 34,12 9,12"  fill="#8B5CF6"/>
+      <polygon points="25,12 34,12 34,0"      fill="#A78BFA"/>
+      <polygon points="0,15 25,15 34,27 34,34 9,34 0,22" fill="#2D1B69"/>
+    </g>
+    <text x="425" y="53" font-family="'Segoe UI',Arial,sans-serif" font-size="15" font-weight="800" fill="#1E1040">zoom <tspan fill="#7C3AED">in</tspan></text>
+
+    <text class="hash" x="440" y="90" font-family="'Segoe UI',Arial,sans-serif" font-size="20" font-weight="900" fill="url(#hashGrad)" text-anchor="middle">#growwithzoomin</text>
+    <text x="440" y="114" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#6D28D9" fill-opacity="0.6" text-anchor="middle">A Business Without Marketing Is Hiding Its Light.</text>
+  </g>
+
+  <!-- RIGHT: Socials -->
+  <g class="f3">
+    <text x="850" y="36" font-family="'Segoe UI',Arial,sans-serif" font-size="11" fill="#7C3AED" letter-spacing="2.5" font-weight="700" text-anchor="end">FOLLOW US</text>
+
+    <rect x="692" y="48" width="80" height="26" rx="13" fill="#7C3AED" fill-opacity="0.14" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="732" y="65" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#4C1D95" text-anchor="middle" font-weight="700">LinkedIn</text>
+
+    <rect x="780" y="48" width="84" height="26" rx="13" fill="#7C3AED" fill-opacity="0.14" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="822" y="65" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#4C1D95" text-anchor="middle" font-weight="700">Instagram</text>
+
+    <rect x="692" y="84" width="80" height="26" rx="13" fill="#7C3AED" fill-opacity="0.14" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="732" y="101" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#4C1D95" text-anchor="middle" font-weight="700">YouTube</text>
+
+    <rect x="780" y="84" width="84" height="26" rx="13" fill="#7C3AED" fill-opacity="0.14" stroke="#7C3AED" stroke-width="1.5"/>
+    <text x="822" y="101" font-family="'Segoe UI',Arial,sans-serif" font-size="12" fill="#4C1D95" text-anchor="middle" font-weight="700">TikTok</text>
+
+    <rect x="692" y="120" width="172" height="26" rx="13" fill="#8B5CF6" fill-opacity="0.1" stroke="#8B5CF6" stroke-width="1"/>
+    <text x="778" y="137" font-family="'Segoe UI',Arial,sans-serif" font-size="11.5" fill="#6D28D9" text-anchor="middle">zoomin.com/portfolio</text>
+  </g>
+</svg>
